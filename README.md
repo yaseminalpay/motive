@@ -2,8 +2,8 @@
 
 "Motive" is an interest-sharing web and android app.
 
-In the app, you can do the followings:
-- Subsribe interest topics
+In the app, you can do the following:
+- Subscribe interest topics
 - Create content or events in the topics
 - Have discussions for the contents or events
 - Annotate contents
