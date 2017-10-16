@@ -1,7 +1,6 @@
 # motive
-Interest-sharing and annotating app
 
-Motive is an interest-sharing web and android app.
+"Motive" is an interest-sharing web and android app.
 
 In the app, you can do the followings:
 - Subsribe interest topics
