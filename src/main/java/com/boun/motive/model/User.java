@@ -1,42 +1,46 @@
-package com.boun.motive.dto;
+package com.boun.motive.model;
 
-import javax.validation.constraints.NotNull;
+import com.boun.motive.util.constant.Privacy;
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 public class User implements Serializable{
 
     @Id
-    public String id;
+    private String id;
 
     @NotNull
-    public String username;
+    private String username;
 
     @NotNull
-    public String password;
+    private String password;
 
     @NotNull
-    public String email;
+    private String email;
 
     @NotNull
-    public String accountType;
+    private String accountType;
 
     @NotNull
-    public String accountStatus;
+    private String accountStatus;
+
+    private Privacy accountPrivacy;
 
     public User()
     {
 
     }
 
-    public User(String id, String username, String password, String email, String accountType, String accountStatus) {
+    public User(String id, String username, String password, String email, String accountType, String accountStatus, Privacy accountPrivacy) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.email = email;
         this.accountType = accountType;
         this.accountStatus = accountStatus;
+        this.accountPrivacy = accountPrivacy;
     }
 
     public String getId() {
@@ -85,5 +89,13 @@ public class User implements Serializable{
 
     public void setAccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
+    }
+
+    public Privacy getAccountPrivacy() {
+        return accountPrivacy;
+    }
+
+    public void setAccountPrivacy(Privacy accountPrivacy) {
+        this.accountPrivacy = accountPrivacy;
     }
 }
