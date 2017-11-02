@@ -10,8 +10,8 @@ import java.util.List;
 @Repository
 public interface NotificationMongoRepository extends MongoRepository<Notification, String> {
 
-    public List<Notification> findNotificationByUserId(String userId);
+    List<Notification> findNotificationByUserId(String userId);
 
-    @Query("{'$and':[ {'userId':?0}, {'notificationStatus': 1} ]}")
-    public List<Notification> findActiveNotificationByUserId(String userId);
+    @Query("{'$and':[ {'userId':?0}, {'notificationStatus': 'NOT_SEEN'} ]}")
+    List<Notification> findActiveNotificationByUserId(String userId);
 }

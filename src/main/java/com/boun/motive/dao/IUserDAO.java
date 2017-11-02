@@ -3,8 +3,8 @@ package com.boun.motive.dao;
 import com.boun.motive.model.User;
 
 public interface IUserDAO {
-    public void createUser(User user);
-    public void modifyUser(String id, User user);
-    public User getUserById(String id);
-    public User getUserByUsername(String username);
+    User createUser(User user);
+    User modifyUser(String id, User user);
+    User getUserById(String id);
+    User getUserByUsername(String username);
 }

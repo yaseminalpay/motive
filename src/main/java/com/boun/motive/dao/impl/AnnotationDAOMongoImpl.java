@@ -13,8 +13,9 @@ public class AnnotationDAOMongoImpl implements IAnnotationDAO{
     AnnotationMongoRepository annotationMongoRepository;
 
     @Override
-    public void createAnnotation(Annotation annotation) {
+    public Annotation createAnnotation(Annotation annotation) {
         annotationMongoRepository.save(annotation);
+        return annotation;
     }
 
     @Override

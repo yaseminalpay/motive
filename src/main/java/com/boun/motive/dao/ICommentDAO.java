@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ICommentDAO {
 
-    public void createComment(Comment comment);
-    public List<Comment> getCommentsByContentId(String contentId);
+    Comment createComment(Comment comment);
+    List<Comment> getCommentsByContentId(String contentId);
 
 }

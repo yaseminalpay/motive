@@ -14,8 +14,9 @@ public class CommentDAOMongoImpl implements ICommentDAO {
 
 
     @Override
-    public void createComment(Comment comment) {
+    public Comment createComment(Comment comment) {
         commentMongoRepository.save(comment);
+        return comment;
     }
 
     @Override

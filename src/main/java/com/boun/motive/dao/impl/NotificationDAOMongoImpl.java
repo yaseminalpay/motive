@@ -14,16 +14,18 @@ public class NotificationDAOMongoImpl implements INotificationDAO {
     NotificationMongoRepository notificationMongoRepository;
 
     @Override
-    public void createNotification(Notification notification) {
+    public Notification createNotification(Notification notification) {
         notificationMongoRepository.save(notification);
+        return notification;
     }
 
     @Override
-    public void deactivateNotifications(List<Notification> notifications) {
+    public List<Notification> deactivateNotifications(List<Notification> notifications) {
         for (Notification notification: notifications) {
             notification.setNotificationStatus(NotificationStatus.SEEN);
         }
         notificationMongoRepository.save(notifications);
+        return notifications;
     }
 
     @Override

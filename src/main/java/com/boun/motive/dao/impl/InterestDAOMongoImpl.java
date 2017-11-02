@@ -14,13 +14,25 @@ public class InterestDAOMongoImpl implements IInterestDAO {
     InterestMongoRepository interestMongoRepository;
 
     @Override
-    public void createInterest(Interest interest) {
+    public Interest createInterest(Interest interest) {
+        Interest existingInterest = getInterestByTitle(interest.getTitle());
+        if(existingInterest != null)
+        {
+            //TODO exception
+            return interest;
+        }
         interestMongoRepository.save(interest);
+        return interest;
     }
 
     @Override
     public List<Interest> getInterests() {
         return interestMongoRepository.findAll();
+    }
+
+    @Override
+    public Interest getInterestByTitle(String title) {
+        return interestMongoRepository.findByTitle(title);
     }
 
     @Override
@@ -36,9 +48,10 @@ public class InterestDAOMongoImpl implements IInterestDAO {
     }
 
     @Override
-    public void modifyInterestPrivacy(String id, Privacy privacy) {
+    public Interest modifyInterestPrivacy(String id, Privacy privacy) {
         Interest interest = interestMongoRepository.findOne(id);
         interest.setInterestPrivacy(privacy);
         interestMongoRepository.save(interest);
+        return interest;
     }
 }

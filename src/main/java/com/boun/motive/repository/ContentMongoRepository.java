@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ContentMongoRepository extends MongoRepository<Content, String> {
 
-    public List<Content> findByInterestId(String interestId);
-    public List<Content> findByInterestIdAndUserId(String interestId, String userId);
+    List<Content> findByInterestId(String interestId);
+    List<Content> findByInterestIdAndUserId(String interestId, String userId);
 }

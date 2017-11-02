@@ -9,13 +9,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DAOConfiguration {
 
-    IAnnotationDAO annotationDAO;
-    ICommentDAO commentDAO;
-    IContentDAO contentDAO;
-    IInterestDAO interestDAO;
-    INotificationDAO notificationDAO;
-    IUserDAO userDAO;
-
     @Bean
     public IUserDAO getUserDAO() {
         return new UserDAOMongoImpl();

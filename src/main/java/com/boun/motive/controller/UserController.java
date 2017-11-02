@@ -19,12 +19,12 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<User> create(@RequestBody @Valid User user) {
         userDAO.createUser(user);
-        return new ResponseEntity<User>(user, HttpStatus.CREATED);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{username}")
-    public User getByUsername(@PathVariable("username") String username) {
-        return userDAO.getUserByUsername(username);
+    public ResponseEntity<User> getByUsername(@PathVariable("username") String username) {
+        return new ResponseEntity<>(userDAO.getUserByUsername(username), HttpStatus.OK);
     }
 
 }

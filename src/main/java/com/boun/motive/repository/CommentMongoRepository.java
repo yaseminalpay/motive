@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface CommentMongoRepository extends MongoRepository<Comment, String> {
 
-    public List<Comment> findCommentsByContentId(String contentId);
+    List<Comment> findCommentsByContentId(String contentId);
 }

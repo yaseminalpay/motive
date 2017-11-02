@@ -4,6 +4,7 @@ import com.boun.motive.dao.IContentDAO;
 import com.boun.motive.model.Content;
 import com.boun.motive.util.constant.Privacy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,49 +22,42 @@ public class ContentController {
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<Content> create(@RequestBody @Valid Content content) {
         contentDAO.createContent(content);
-        return new ResponseEntity<Content>(content, HttpStatus.CREATED);
+        return new ResponseEntity<>(content, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public Content get(@PathVariable("id") String id) {
-        return contentDAO.getContentById(id);
+    public ResponseEntity<Content> get(@PathVariable("id") String id) {
+        return new ResponseEntity<>(contentDAO.getContentById(id), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/interest/{interestId}")
-    public List<Content> getByInterest(@PathVariable("interestId") String interestId) {
-        return contentDAO.getContentsByInterest(interestId);
-    }
-
-    @RequestMapping(method = RequestMethod.GET, value = "/interest/{interestId}/user/{userId}")
-    public List<Content> getByInterestAndUser(@PathVariable("interestId") String interestId, @PathVariable("userId") String userId) {
-        return contentDAO.getContentsByInterestAndUser(interestId, userId);
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<Content>> getByInterestAndUser(@RequestParam(value = "interestId", required = true) String interestId, @RequestParam("userId") String userId) {
+        return new ResponseEntity<>(contentDAO.getContentsByInterestAndUser(interestId, userId), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/tag/{tag}")
-    public void tag(@PathVariable("id") String id, @PathVariable("tag") String tag) {
-        contentDAO.tagContent(id, tag);
+    public ResponseEntity<Content> tag(@PathVariable("id") String id, @PathVariable("tag") String tag) {
+        return new ResponseEntity<>(contentDAO.tagContent(id, tag), HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}/tag/{tag}")
+    public ResponseEntity<Content> removeTag(@PathVariable("id") String id, @PathVariable("tag") String tag) {
+        return new ResponseEntity<>(contentDAO.removeTagFromContent(id, tag), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/privacy/{privacy}")
-    public void modifyPrivacy(@PathVariable("id") String id, @PathVariable("privacy") Privacy privacy) {
-        contentDAO.modifyContentPrivacy(id, privacy);
+    public ResponseEntity<Content> modifyPrivacy(@PathVariable("id") String id, @PathVariable("privacy") Privacy privacy) {
+        return new ResponseEntity<>(contentDAO.modifyContentPrivacy(id, privacy), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/upVote")
-    public void upVote(@PathVariable("id") String id) {
-        contentDAO.upVoteContent(id);
+    public ResponseEntity<Content> upVote(@PathVariable("id") String id) {
+        return new ResponseEntity<>(contentDAO.upVoteContent(id), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/downVote")
-    public void downVote(@PathVariable("id") String id) {
-        contentDAO.downVoteContent(id);
+    public ResponseEntity<Content> downVote(@PathVariable("id") String id) {
+        return new ResponseEntity<>(contentDAO.downVoteContent(id), HttpStatus.OK);
     }
-
-
-
-
-
-
-
 
 }

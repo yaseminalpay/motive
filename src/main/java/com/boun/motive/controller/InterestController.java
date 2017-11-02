@@ -21,27 +21,27 @@ public class InterestController {
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<Interest> create(@RequestBody @Valid Interest interest) {
         interestDAO.createInterest(interest);
-        return new ResponseEntity<Interest>(interest, HttpStatus.CREATED);
+        return new ResponseEntity<>(interest, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/")
-    public List<Interest> get() {
-        return interestDAO.getInterests();
+    public ResponseEntity<List<Interest>> get() {
+        return new ResponseEntity<>(interestDAO.getInterests(), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{userId}")
-    public List<Interest> get(@PathVariable("userId") String userId ) {
-        return interestDAO.getInterestsByUserId(userId);
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<Interest>> get(@RequestParam("userId") String userId ) {
+        return new ResponseEntity<>(interestDAO.getInterestsByUserId(userId), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/search/q")
-    public List<Interest> search(@RequestParam String keyword) {
-        return interestDAO.getInterestByKeyword(keyword);
+    public ResponseEntity<List<Interest>> search(@RequestParam String keyword) {
+        return new ResponseEntity<>(interestDAO.getInterestByKeyword(keyword), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/{id}/modifyPrivacy/{privacy}")
-    public void modifyPrivacy(@PathVariable("id") String id, @PathVariable("privacy") Privacy privacy) {
-        interestDAO.modifyInterestPrivacy(id, privacy);
+    @RequestMapping(method = RequestMethod.PUT, value = "/{id}/privacy/{privacy}")
+    public ResponseEntity<Interest> modifyPrivacy(@PathVariable("id") String id, @PathVariable("privacy") Privacy privacy) {
+        return new ResponseEntity<>(interestDAO.modifyInterestPrivacy(id, privacy), HttpStatus.OK);
     }
 
 

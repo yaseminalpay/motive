@@ -11,13 +11,15 @@ public class UserDAOMongoImpl implements IUserDAO {
     private UserMongoRepository userMongoRepository;
 
     @Override
-    public void createUser(User user) {
+    public User createUser(User user) {
         userMongoRepository.save(user);
+        return user;
     }
 
     @Override
-    public void modifyUser(String id, User user) {
+    public User modifyUser(String id, User user) {
         userMongoRepository.save(user);
+        return user;
 
     }
 

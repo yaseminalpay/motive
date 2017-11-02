@@ -20,11 +20,11 @@ public class CommentController {
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<Comment> create(@RequestBody @Valid Comment comment) {
         commentDAO.createComment(comment);
-        return new ResponseEntity<Comment>(comment, HttpStatus.CREATED);
+        return new ResponseEntity<>(comment, HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{contentId}")
-    public List<Comment> get(@PathVariable("contentId") String contentId) {
-        return commentDAO.getCommentsByContentId(contentId);
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<Comment>> get(@RequestParam("contentId") String contentId) {
+        return new ResponseEntity<>(commentDAO.getCommentsByContentId(contentId), HttpStatus.OK);
     }
 }

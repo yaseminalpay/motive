@@ -20,22 +20,22 @@ public class NotificationController {
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<Notification> create(@RequestBody @Valid Notification notification) {
         notificationDAO.createNotification(notification);
-        return new ResponseEntity<Notification>(notification, HttpStatus.CREATED);
+        return new ResponseEntity<>(notification, HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/deactivate/{userId}")
-    public void deactivateNotificationsOfUser(@PathVariable("userId") String userId) {
+    @RequestMapping(method = RequestMethod.PUT, value = "/deactivate")
+    public ResponseEntity<List<Notification>> deactivateNotificationsOfUser(@RequestParam("userId") String userId) {
         List<Notification> notifications = notificationDAO.getActiveNotificationsByUserId(userId);
-        notificationDAO.deactivateNotifications(notifications);
+        return new ResponseEntity<>(notificationDAO.deactivateNotifications(notifications), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/{userId}")
-    public List<Notification> getNotificationsByUserId(@PathVariable("userId") String userId) {
-        return notificationDAO.getNotificationsByUserId(userId);
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<Notification>> getNotificationsByUserId(@RequestParam("userId") String userId) {
+        return new ResponseEntity<>(notificationDAO.getNotificationsByUserId(userId), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/active/{userId}")
-    public List<Notification> getActiveNotificationsByUserId(@PathVariable("userId") String userId) {
-        return notificationDAO.getActiveNotificationsByUserId(userId);
+    @RequestMapping(method = RequestMethod.GET, value = "/active")
+    public ResponseEntity<List<Notification>> getActiveNotificationsByUserId(@RequestParam("userId") String userId) {
+        return new ResponseEntity<>(notificationDAO.getActiveNotificationsByUserId(userId), HttpStatus.OK);
     }
 }

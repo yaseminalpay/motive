@@ -5,7 +5,7 @@ import com.boun.motive.model.Annotation;
 import java.util.List;
 
 public interface IAnnotationDAO {
-    public void createAnnotation(Annotation annotation);
-    public List<Annotation> getAnnotationsByContentId(String contentId);
-    public List<Annotation> getAnnotationsByUserId(String userId);
+    Annotation createAnnotation(Annotation annotation);
+    List<Annotation> getAnnotationsByContentId(String contentId);
+    List<Annotation> getAnnotationsByUserId(String userId);
 }

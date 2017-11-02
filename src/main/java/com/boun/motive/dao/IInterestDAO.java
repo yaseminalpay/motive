@@ -6,9 +6,10 @@ import com.boun.motive.util.constant.Privacy;
 import java.util.List;
 
 public interface IInterestDAO {
-    public void createInterest(Interest interest);
-    public List<Interest> getInterests();
-    public List<Interest> getInterestsByUserId(String userId);
-    public List<Interest> getInterestByKeyword(String keyword);
-    public void modifyInterestPrivacy(String id, Privacy privacy);
+    Interest createInterest(Interest interest);
+    List<Interest> getInterests();
+    Interest getInterestByTitle(String title);
+    List<Interest> getInterestsByUserId(String userId);
+    List<Interest> getInterestByKeyword(String keyword);
+    Interest modifyInterestPrivacy(String id, Privacy privacy);
 }
