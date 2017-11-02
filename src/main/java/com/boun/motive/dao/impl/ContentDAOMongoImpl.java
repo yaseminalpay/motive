@@ -7,9 +7,10 @@ import com.boun.motive.util.constant.Privacy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class ContentDAOMongoDAOImpl implements IContentDAO {
+public class ContentDAOMongoImpl implements IContentDAO {
 
     @Autowired
     ContentMongoRepository contentMongoRepository;
@@ -29,12 +30,16 @@ public class ContentDAOMongoDAOImpl implements IContentDAO {
 
     @Override
     public List<Content> getContentsByInterestAndUser(String interestId, String userId) {
+        List<Content> contents;
 
         if(!StringUtils.isEmpty(userId)) {
-            return contentMongoRepository.findByInterestIdAndUserId(interestId, userId);
-
+            contents = contentMongoRepository.findByInterestIdAndUserId(interestId, userId);
         }
-            return contentMongoRepository.findByInterestId(interestId);
+        else {
+            contents = contentMongoRepository.findByInterestId(interestId);
+        }
+
+        return contents;
     }
 
     @Override
@@ -45,8 +50,10 @@ public class ContentDAOMongoDAOImpl implements IContentDAO {
         {
             return content;
         }
-        tags.add(tag);
-        contentMongoRepository.save(content);
+        else{
+            tags.add(tag);
+            contentMongoRepository.save(content);
+        }
         return content;
 
     }

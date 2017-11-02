@@ -20,6 +20,7 @@ public class AnnotationDAOMongoImpl implements IAnnotationDAO{
 
     @Override
     public List<Annotation> getAnnotationsByContentId(String contentId) {
+
         return null;
     }
 

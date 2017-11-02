@@ -24,7 +24,7 @@ public class DAOConfiguration {
 
     @Bean
     public IContentDAO getContentDAO() {
-        return new ContentDAOMongoDAOImpl();
+        return new ContentDAOMongoImpl();
     }
 
     @Bean
