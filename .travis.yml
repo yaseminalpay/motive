@@ -1,0 +1,19 @@
+language: java
+jdk:
+  - oraclejdk8
+  
+before_install:
+ - chmod +x gradlew
+
+stages:
+  - unitTests
+ 
+unitTests:
+    stage: unitTests
+    script:
+        - gradle clean test
+        - echo "Unit test stage completed"
+    only:
+        - dev
+
+
