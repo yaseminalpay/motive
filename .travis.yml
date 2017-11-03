@@ -8,9 +8,7 @@ before_install:
 
 stages:
   - unitTests
-  - pushToMaster
-  
-
+ 
 unitTests:
     stage: unitTests
     script:
@@ -19,16 +17,4 @@ unitTests:
     only:
         - dev
 
-
-pushToMaster:
-    stage: pushToMaster
-    script:
-        - git checkout master
-        - git pull
-        - git merge dev
-        - git push -u origin master
-        - echo "Pushed to master"
-    only:
-        - dev
-  
 
