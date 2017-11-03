@@ -30,6 +30,5 @@ dependencies {
     compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-joda', version: '2.9.2'
     testCompile('org.springframework.boot:spring-boot-starter-test')
-	testCompile group: 'org.mockito', name: 'mockito-all', version: '1.8.4'
 
 }
