@@ -4,4 +4,31 @@ jdk:
   
 before_install:
  - chmod +x gradlew
-script: gradle clean test
+
+
+stages:
+  - unitTests
+  - pushToMaster
+  
+
+unitTests:
+    stage: unitTests
+    script:
+        - gradle clean test
+        - echo "Unit test stage completed"
+    only:
+        - dev
+
+
+pushToMaster:
+    stage: pushToMaster
+    script:
+        - git checkout master
+        - git pull
+        - git merge dev
+        - git push -u origin master
+        - echo "Pushed to master"
+    only:
+        - dev
+  
+
