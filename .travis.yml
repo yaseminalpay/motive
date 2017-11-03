@@ -1,4 +1,6 @@
 language: java
 jdk:
   - oraclejdk8
+  
+before_script: git update-index --chmod=+x gradlew
 script: gradle clean test
