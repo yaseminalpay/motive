@@ -1,3 +1,8 @@
+### Build Status
+[![Build Status](https://travis-ci.org/yaseminalpay/motive.svg?branch=dev)](https://travis-ci.org/yaseminalpay/motive.svg?branch=dev)
+
+
+
 # motive
 
 "Motive" is an interest-sharing web and android app.
@@ -11,4 +16,7 @@ In the app, you can do the following:
 
 Enjoy!
 
-For more information, please go to [wiki](https://github.com/yaseminalpay/motive/wiki) page:
+For more information, please go to [wiki](https://github.com/yaseminalpay/motive/wiki) page.
+
+
+
