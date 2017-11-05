@@ -1,0 +1,86 @@
+{
+	"id": "a2f02ff1-8c46-9307-0751-79999f3e00e4",
+	"name": "comments",
+	"description": "",
+	"order": [
+		"ce32db1f-4ac6-8105-94a2-e4c5555b2e80",
+		"0e2fb82a-75c1-9501-d999-aa7e460500b9"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1509645073180,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "0e2fb82a-75c1-9501-d999-aa7e460500b9",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/api/v1/comments?contentId=123123",
+			"queryParams": [
+				{
+					"key": "contentId",
+					"value": "123123",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "a2f02ff1-8c46-9307-0751-79999f3e00e4",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8080/api/v1/comments/",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509646864194,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\t\"description\": \"desc f11t\",\r\n\t\"userId\": \"123435343\",\r\n\t\"contentId\": \"123123\"\r\n\t\r\n}\r\n\r\n"
+		},
+		{
+			"id": "ce32db1f-4ac6-8105-94a2-e4c5555b2e80",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/api/v1/comments/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "a2f02ff1-8c46-9307-0751-79999f3e00e4",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8080/api/v1/comments/",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509645340607,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\t\"description\": \"desc f11t\",\r\n\t\"userId\": \"123435343\",\r\n\t\"contentId\": \"123123\"\r\n\t\r\n}\r\n\r\n"
+		}
+	]
+}

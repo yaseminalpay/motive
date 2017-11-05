@@ -1,0 +1,150 @@
+{
+	"id": "0905d97d-c108-edec-5a83-55e1f8ad2408",
+	"name": "interests",
+	"description": "",
+	"order": [
+		"ac900cca-a125-4417-3a41-f39829514949",
+		"12774f06-ad83-2419-f370-cf81f482c032",
+		"a4ec906e-f063-0ecc-8b7f-40bc0baa6229",
+		"8c95c71c-3fba-b8b7-f09e-96691c0790f3"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1509649547231,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "12774f06-ad83-2419-f370-cf81f482c032",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/api/v1/interests/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "0905d97d-c108-edec-5a83-55e1f8ad2408",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8080/api/v1/interests/",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509650875850,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\t\"title\":\"node-js\",\r\n\t\"description\":\"is wonderful\",\r\n\t\"interestPrivacy\": 1,\r\n\t\"userId\":\"123435343\"\r\n}\r\n\r\n\r\n"
+		},
+		{
+			"id": "8c95c71c-3fba-b8b7-f09e-96691c0790f3",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:8080/api/v1/interests/search/q?keyword=js",
+			"queryParams": [
+				{
+					"key": "keyword",
+					"value": "js",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "0905d97d-c108-edec-5a83-55e1f8ad2408",
+			"data": null,
+			"dataMode": "params",
+			"name": "localhost:8080/api/v1/interests/search/q?keyword=js",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509651198707,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "a4ec906e-f063-0ecc-8b7f-40bc0baa6229",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/api/v1/interests?userId=123435343",
+			"queryParams": [
+				{
+					"key": "userId",
+					"value": "123435343",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "0905d97d-c108-edec-5a83-55e1f8ad2408",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8080/api/v1/interests?userId=123435343",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509650909280,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\t\"title\":\"node-js\",\r\n\t\"description\":\"is wonderful\",\r\n\t\"interestPrivacy\": 1,\r\n\t\"userId\":\"123435343\"\r\n}\r\n\r\n\r\n"
+		},
+		{
+			"id": "ac900cca-a125-4417-3a41-f39829514949",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/api/v1/interests/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "0905d97d-c108-edec-5a83-55e1f8ad2408",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8080/api/v1/interests/",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509650866400,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\t\"title\":\"node-js\",\r\n\t\"description\":\"is wonderful\",\r\n\t\"interestPrivacy\": 1,\r\n\t\"userId\":\"123435343\"\r\n}\r\n\r\n\r\n"
+		}
+	]
+}
