@@ -1,0 +1,150 @@
+{
+	"id": "659111b3-7769-c8ca-5686-baca6d5e1f8e",
+	"name": "notifications",
+	"description": "",
+	"order": [
+		"a823c12e-391a-7716-7535-76ca835bad16",
+		"a771876f-6211-573b-43a9-4cd755c4aba6",
+		"f278b613-bd5e-bb60-8bdb-5b8352dd4b64",
+		"22f7190d-00a0-be85-8f63-53628bddae87"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1509651785175,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "22f7190d-00a0-be85-8f63-53628bddae87",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:8080/api/v1/notifications/active?userId=123435343",
+			"queryParams": [
+				{
+					"key": "userId",
+					"value": "123435343",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "659111b3-7769-c8ca-5686-baca6d5e1f8e",
+			"data": null,
+			"dataMode": "params",
+			"name": "localhost:8080/api/v1/notifications/active?userId=123435343",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509653300543,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "a771876f-6211-573b-43a9-4cd755c4aba6",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/api/v1/notifications?userId=123435343",
+			"queryParams": [
+				{
+					"key": "userId",
+					"value": "123435343",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "659111b3-7769-c8ca-5686-baca6d5e1f8e",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8080/api/v1/notifications?userId=123435343",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509652753422,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\r\n\"notificationType\":0,\r\n\"description\":\"%s wants to subscribe '%s' interest topic!\",\r\n\"notificationStatus\":0,\r\n\"userId\":\"123435343\"\r\n\r\n}\r\n\r\n"
+		},
+		{
+			"id": "a823c12e-391a-7716-7535-76ca835bad16",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "localhost:8080/api/v1/notifications/",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "659111b3-7769-c8ca-5686-baca6d5e1f8e",
+			"data": [],
+			"dataMode": "raw",
+			"name": "localhost:8080/api/v1/notifications/",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509652727600,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\r\n\r\n\"notificationType\":0,\r\n\"description\":\"%s wants to subscribe '%s' interest topic!\",\r\n\"notificationStatus\":0,\r\n\"userId\":\"123435343\"\r\n\r\n}\r\n\r\n"
+		},
+		{
+			"id": "f278b613-bd5e-bb60-8bdb-5b8352dd4b64",
+			"headers": "",
+			"headerData": [],
+			"url": "localhost:8080/api/v1/notifications/deactivate?userId=123435343",
+			"queryParams": [
+				{
+					"key": "userId",
+					"value": "123435343",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PUT",
+			"collectionId": "659111b3-7769-c8ca-5686-baca6d5e1f8e",
+			"data": null,
+			"dataMode": "params",
+			"name": "localhost:8080/api/v1/notifications/deactivate?userId=123435343",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1509653063627,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}
