@@ -74,6 +74,10 @@
             data: {
                 pageTitle: 'Saved Tweets'
             }
+        }).state('contents', {
+        	url:'/contents/:interestId',
+        	templateUrl: viewsPrefix + 'home.html',
+            controller:'GetContentsByInterestController'
         }).state('search', {
         	url:'/search/:queryString',
         	templateUrl: viewsPrefix + 'home.html',

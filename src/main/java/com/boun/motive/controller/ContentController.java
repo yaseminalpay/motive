@@ -30,8 +30,8 @@ public class ContentController {
     }
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Content>> getByInterestAndUser(@RequestParam(value = "interestId", required = true) String interestId, @RequestParam("userId") String userId) {
-        return new ResponseEntity<>(contentDAO.getContentsByInterestAndUser(interestId, userId), HttpStatus.OK);
+    public ResponseEntity<List<Content>> getByInterest(@RequestParam(value = "interestId", required = true) String interestId) {
+        return new ResponseEntity<>(contentDAO.getContentsByInterest(interestId), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/tag/{tag}")

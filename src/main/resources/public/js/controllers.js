@@ -44,6 +44,12 @@ angular.module('app.controllers', [])
 		function($scope, $stateParams, Interest) {
 			$scope.savedInterests = Interest.query();
 		})
+.controller('GetContentsByInterestController',
+		function($scope, $stateParams, Content) {
+			$scope.savedContents = Content.query({
+			interestId : $stateParams.interestId
+	});
+		})
 .controller('TweetSearchController',
 		function($scope, $stateParams, SearchedTweet) {
 		$scope.savedTweets = SearchedTweet.query({

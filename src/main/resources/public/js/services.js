@@ -20,6 +20,9 @@ angular.module('app.services', [])
 .factory('Interest', function($resource) {
     return $resource('/api/v1/interests/:queryString', { queryString: '' });
 })
+.factory('Content', function($resource) {
+    return $resource('/api/v1/contents?interestId=:interestId', { interestId: '@interestId' });
+})
 .factory('SearchedTweet', function($resource) {
     return $resource('/api/v1/search/:queryString', { queryString: '@queryString' });
 }).service('popupService',function($window){
