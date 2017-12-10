@@ -1,0 +1,15 @@
+<div class="container pad-top">
+    <table class="table funtweettable">
+        <tr>
+            <td><h3>Saved Tweets</h3></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="tweet in tweets">
+            <td>{{tweet.content}}</td>
+            <td>
+                <a class="btn btn-primary" ui-sref="viewTweet({id:tweet.id})">View</a>
+                <a class="btn btn-danger"  ng-click="deleteTweet(tweet)">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>

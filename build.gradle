@@ -29,6 +29,7 @@ dependencies {
     compile group: 'com.github.jsonld-java', name: 'jsonld-java', version: '0.11.1'
     compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
     compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-joda', version: '2.9.2'
+    compile group: 'org.codehaus.jackson', name: 'jackson-mapper-asl', version: '1.9.13'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
 }

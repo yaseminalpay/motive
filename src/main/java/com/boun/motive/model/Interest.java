@@ -5,74 +5,81 @@ import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.List;
 
 public class Interest implements Serializable {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5351781471764480911L;
+
+	@Id
     private String id;
 
     @NotNull
     private String title;
 
-    @NotNull
     private String description;
 
-    @NotNull
     private Privacy interestPrivacy;
 
-    @NotNull
     private String userId;
 
+    @NotNull
+	private List<CustomProperty> properties;
+    
     public Interest()
     {
 
     }
 
-    public Interest(String id, String title, String description, Privacy interestPrivacy, String userId) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.interestPrivacy = interestPrivacy;
-        this.userId = userId;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public Privacy getInterestPrivacy() {
+		return interestPrivacy;
+	}
 
-    public Privacy getInterestPrivacy() {
-        return interestPrivacy;
-    }
+	public void setInterestPrivacy(Privacy interestPrivacy) {
+		this.interestPrivacy = interestPrivacy;
+	}
 
-    public void setInterestPrivacy(Privacy interestPrivacy) {
-        this.interestPrivacy = interestPrivacy;
-    }
+	public String getUserId() {
+		return userId;
+	}
 
-    public String getUserId() {
-        return userId;
-    }
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
+	public List<CustomProperty> getProperties() {
+		return properties;
+	}
+
+	public void setProperties(List<CustomProperty> properties) {
+		this.properties = properties;
+	}
+    
 }
