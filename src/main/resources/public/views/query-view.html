@@ -1,0 +1,16 @@
+<div class="container pad-top">
+    <table class="table funtweettable">
+        <tr>
+            <td><h3>All Queries</h3></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="query in queries">
+            <td>{{query.description}}</td>
+            <td>{{query.keyword}}</td>
+            <td>{{query.hashtag}}</td>
+        </tr>
+    </table>
+    <div>
+        <a class="btn btn-primary" ui-sref="editQuery({id:query.id})">Edit</a>
+    </div>
+</div>

@@ -1,7 +1,8 @@
 package com.boun.motive.controller;
 
-import com.boun.motive.dao.ICommentDAO;
 import com.boun.motive.model.Comment;
+import com.boun.motive.service.ICommentService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import java.util.List;
 public class CommentController {
 
     @Autowired
-    ICommentDAO commentDAO;
+    ICommentService commentDAO;
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<Comment> create(@RequestBody @Valid Comment comment) {

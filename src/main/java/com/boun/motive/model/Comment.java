@@ -1,13 +1,19 @@
 package com.boun.motive.model;
 
-import org.springframework.data.annotation.Id;
+import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
-import java.io.Serializable;
+
+import org.springframework.data.annotation.Id;
 
 public class Comment implements Serializable{
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -2992342805205926008L;
+
+	@Id
     private String id;
 
     @NotNull

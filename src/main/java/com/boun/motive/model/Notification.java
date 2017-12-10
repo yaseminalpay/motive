@@ -9,7 +9,12 @@ import java.io.Serializable;
 
 public class Notification implements Serializable {
 
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 4034034400524214461L;
+
+	@Id
     private String id;
 
     @NotNull

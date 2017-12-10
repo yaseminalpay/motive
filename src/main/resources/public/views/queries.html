@@ -1,0 +1,18 @@
+<div class="container pad-top">
+    <a ui-sref="newQuery" class="btn-primary btn-lg nodecoration">Add New Query</a>
+    <table class="table funtweettable">
+        <tr>
+            <td><h3>All Queries</h3></td>
+            <td></td>
+        </tr>
+        <tr ng-repeat="query in queries">
+            <td>{{query.description}}</td>
+            <td>{{query.keyword}}</td>
+            <td>{{query.hashtag}}</td>
+            <td>
+                <a class="btn btn-primary" ui-sref="viewQuery({id:query.id})">View</a>
+                <a class="btn btn-danger"  ng-click="deleteQuery(query)">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
