@@ -8,7 +8,7 @@ import java.util.List;
 public interface IContentService {
     Content createContent(Content content);
     Content getContentById(String id);
-    List<Content> getContentsByInterest(String interestId);
+    List<Content> getContentsByInterestAndUser(String interestId, String userId);
     Content tagContent(String id, String tag);
     Content removeTagFromContent(String id, String tag);
     Content modifyContentPrivacy(String id, Privacy privacy);
