@@ -1,8 +1,7 @@
 package com.boun.motive.controller;
 
+import com.boun.motive.dao.IUserDAO;
 import com.boun.motive.model.User;
-import com.boun.motive.service.IUserService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +14,7 @@ import javax.validation.Valid;
 public class UserController {
 
     @Autowired
-    private IUserService userDAO;
+    private IUserDAO userDAO;
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<User> create(@RequestBody @Valid User user) {

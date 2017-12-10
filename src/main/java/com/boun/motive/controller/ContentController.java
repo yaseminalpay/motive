@@ -1,7 +1,7 @@
 package com.boun.motive.controller;
 
+import com.boun.motive.dao.IContentDAO;
 import com.boun.motive.model.Content;
-import com.boun.motive.service.IContentService;
 import com.boun.motive.util.constant.Privacy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ import java.util.List;
 public class ContentController {
 
     @Autowired
-    private IContentService contentDAO;
+    private IContentDAO contentDAO;
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<Content> create(@RequestBody @Valid Content content) {

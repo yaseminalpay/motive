@@ -1,33 +1,29 @@
 package com.boun.motive.model;
 
 import com.boun.motive.util.constant.Privacy;
-
-import org.codehaus.jackson.annotate.JsonAnyGetter;
-import org.codehaus.jackson.annotate.JsonAnySetter;
-import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Content implements Serializable {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 4524964076993066786L;
-
-	@Id
+    @Id
     private String id;
+
+    @NotNull
+    private String contentType;
 
     @NotNull
     private String title;
 
+    @NotNull
+    private String description;
+
     private List<String> tags;
 
+    @NotNull
     private String userId;
 
     @NotNull
@@ -39,93 +35,101 @@ public class Content implements Serializable {
 
     private Privacy contentPrivacy;
 
-    @JsonIgnore
-	protected Map<String, Object> nonMappedAttributes;
+    public Content()
+    {
 
-	@JsonAnyGetter
-	public Map<String, Object> getNonMappedAttributes() {
-		return nonMappedAttributes;
-	}
-
-	@JsonAnySetter
-	public void setNonMappedAttributes(String key, Object value) {
-		if (nonMappedAttributes == null) {
-			nonMappedAttributes = new HashMap<String, Object>();
-		}
-		if (key != null) {
-			if (value != null) {
-				nonMappedAttributes.put(key, value);
-			} else {
-				nonMappedAttributes.remove(key);
-			}
-		}
-	}
-    
-    public Content(){
     }
 
-	public String getId() {
-		return id;
-	}
+    public Content(String id, String contentType, String title, String description, List<String> tags, String userId, String interestId, int upVoteCount, int downVoteCount, Privacy contentPrivacy) {
+        this.id = id;
+        this.contentType = contentType;
+        this.title = title;
+        this.description = description;
+        this.tags = tags;
+        this.userId = userId;
+        this.interestId = interestId;
+        this.upVoteCount = upVoteCount;
+        this.downVoteCount = downVoteCount;
+        this.contentPrivacy = contentPrivacy;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getContentType() {
+        return contentType;
+    }
 
-	public List<String> getTags() {
-		return tags;
-	}
+    public void setContentType(String contentType) {
+        this.contentType = contentType;
+    }
 
-	public void setTags(List<String> tags) {
-		this.tags = tags;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getUserId() {
-		return userId;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public String getInterestId() {
-		return interestId;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setInterestId(String interestId) {
-		this.interestId = interestId;
-	}
+    public List<String> getTags() {
+        return tags;
+    }
 
-	public int getUpVoteCount() {
-		return upVoteCount;
-	}
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
 
-	public void setUpVoteCount(int upVoteCount) {
-		this.upVoteCount = upVoteCount;
-	}
+    public String getUserId() {
+        return userId;
+    }
 
-	public int getDownVoteCount() {
-		return downVoteCount;
-	}
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
 
-	public void setDownVoteCount(int downVoteCount) {
-		this.downVoteCount = downVoteCount;
-	}
+    public String getInterestId() {
+        return interestId;
+    }
 
-	public Privacy getContentPrivacy() {
-		return contentPrivacy;
-	}
+    public void setInterestId(String interestId) {
+        this.interestId = interestId;
+    }
 
-	public void setContentPrivacy(Privacy contentPrivacy) {
-		this.contentPrivacy = contentPrivacy;
-	}
-    
+    public int getUpVoteCount() {
+        return upVoteCount;
+    }
+
+    public void setUpVoteCount(int upVoteCount) {
+        this.upVoteCount = upVoteCount;
+    }
+
+    public int getDownVoteCount() {
+        return downVoteCount;
+    }
+
+    public void setDownVoteCount(int downVoteCount) {
+        this.downVoteCount = downVoteCount;
+    }
+
+    public Privacy getContentPrivacy() {
+        return contentPrivacy;
+    }
+
+    public void setContentPrivacy(Privacy contentPrivacy) {
+        this.contentPrivacy = contentPrivacy;
+    }
 }

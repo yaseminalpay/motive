@@ -1,10 +1,8 @@
 package com.boun.motive.dao.impl;
 
+import com.boun.motive.dao.IContentDAO;
 import com.boun.motive.model.Content;
 import com.boun.motive.repository.ContentMongoRepository;
-import com.boun.motive.service.IContentService;
-import com.boun.motive.service.impl.ContentServiceMongoImpl;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +17,7 @@ import java.util.List;
 public class TestContentDAOMongoImpl {
 
     @InjectMocks
-    private IContentService sut = new ContentServiceMongoImpl();
+    private IContentDAO sut = new ContentDAOMongoImpl();
 
     @Mock
     private Content mockContent;
