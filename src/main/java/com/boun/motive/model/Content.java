@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Content implements Serializable {
 
@@ -39,29 +40,23 @@ public class Content implements Serializable {
 
     private Privacy contentPrivacy;
 
-    @JsonIgnore
-	protected Map<String, Object> nonMappedAttributes;
+	@JsonIgnore
+	private Map<String, Object> propertyMap = new HashMap<String, Object>();
 
 	@JsonAnyGetter
-	public Map<String, Object> getNonMappedAttributes() {
-		return nonMappedAttributes;
+	public Map<String, Object> getPropertyMap() {
+		return propertyMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
 	}
 
 	@JsonAnySetter
-	public void setNonMappedAttributes(String key, Object value) {
-		if (nonMappedAttributes == null) {
-			nonMappedAttributes = new HashMap<String, Object>();
+	public void setPropertyMap(String name, Object value) {
+		if(propertyMap == null){
+			return;
 		}
-		if (key != null) {
-			if (value != null) {
-				nonMappedAttributes.put(key, value);
-			} else {
-				nonMappedAttributes.remove(key);
-			}
-		}
+		propertyMap.put(name, value);
 	}
-    
-    public Content(){
+
+	public Content(){
     }
 
 	public String getId() {

@@ -7,7 +7,7 @@
 
             <h1 class="my-4">Interests</h1>
             <div class="list-group" ng-repeat="interest in savedInterests">
-                <a ui-sref="contents({interestId:interest.id})" class="list-group-item">{{interest.title}}</a>
+                <a ng-href="index.html#/contents/{{interest.id}}" class="list-group-item">{{interest.title}}</a>
             </div>
 
         </div>
@@ -17,18 +17,23 @@
 
             <h1 class="my-4">Items</h1>
 
-            <div class="row placeholders">
-                <div class="col-xs-6 col-sm-3 placeholder list-group-item" ng-repeat="content in savedContents" >
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            <div class="row placeholders" ng-controller="PagingContentController" >
+                <div class="col-xs-6 col-sm-3 placeholder list-group-item" ng-repeat="content in filteredContents" >
+                    <img src="https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Download-Computer-512.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                     <h4>{{content.title}}</h4>
-                    <span class="text-muted">Something else</span>
+                    <span class="text-muted">{{content.interestId}}</span>
                 </div>
+                <pagination
+                        ng-model="currentPage"
+                        total-items="savedContents.length"
+                        max-size="maxSize"
+                        boundary-links="true">
+                </pagination>
+
             </div>
 
         </div>
         <!-- /.col-lg-9 -->
-
-        
 
     </div>
 
