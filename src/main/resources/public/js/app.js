@@ -49,35 +49,6 @@
                 data: {
                     pageTitle: 'Home'
                 }
-            }).state('queries', {
-            url: '/queries',
-            templateUrl: viewsPrefix + 'queries.html',
-            controller: 'QueryListController',
-            data: {
-                pageTitle: 'Saved Queries'
-            }
-        }).state('newQuery', {
-            url: '/queries/new',
-            templateUrl: viewsPrefix + 'query-add.html',
-            controller: 'QueryCreateController'
-        }).state('viewQuery', {
-            url: '/queries/:id/view',
-            templateUrl: viewsPrefix + 'query-view.html',
-            controller: 'QueryViewController'
-        }).state('editQuery', {
-            url: '/queries/:id/edit',
-            templateUrl: viewsPrefix + 'query-edit.html',
-            controller: 'QueryEditController'
-        }).state('deleteQuery', {
-            url: '/queries/:id/delete',
-            templateUrl: viewsPrefix + 'queries.html',
-            controller: 'QueryDeleteController'
-        }).state('tweets', {
-            url: "/tweets",
-            templateUrl: viewsPrefix + "tweets.html",
-            data: {
-                pageTitle: 'Saved Tweets'
-            }
         }).state('contents', {
             url: '/contents/:interestId',
             templateUrl: viewsPrefix + 'home.html',
@@ -86,10 +57,6 @@
             url: '/items/new',
             templateUrl: viewsPrefix + 'item-add.html',
             controller: 'ItemCreateController'
-        }).state('search', {
-            url: '/search/:queryString',
-            templateUrl: viewsPrefix + 'home.html',
-            controller: 'TweetSearchController'
         })
     })
         .directive('updateTitle', ['$rootScope', '$timeout',
