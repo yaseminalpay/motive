@@ -15,14 +15,17 @@
         <div class="col-lg-9">
             <div>
 
-                <h1 class="my-4 d-flex justify-content-center">Items <button type="button" class="btn btn-primary btn-sm">Create new item</button></h1>
+                <h1 class="my-4">
+                	Items
+                	<a ui-sref="newItem" class="btn btn-primary btn-sm nodecoration">Create New Item</a>
+                </h1>
 
 
             </div>
 
             <div class="row placeholders" ng-controller="PagingContentController">
                 <div class="col-xs-6 col-sm-3 placeholder list-group-item" ng-repeat="content in filteredContents">
-                    <img src="https://cdn0.iconfinder.com/data/icons/kameleon-free-pack-rounded/110/Download-Computer-512.png"
+                    <img src="{{content.imgPath}}"
                          width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
                     <h4>{{content.title}}</h4>
                     <span class="text-muted">{{content.interestId}}</span>

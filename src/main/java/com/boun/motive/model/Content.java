@@ -27,8 +27,10 @@ public class Content implements Serializable {
     @NotNull
     private String title;
 
+    private String imgPath;
+        
     private List<String> tags;
-
+    
     private String userId;
 
     @NotNull
@@ -42,7 +44,7 @@ public class Content implements Serializable {
 
 	@JsonIgnore
 	private Map<String, Object> propertyMap = new HashMap<String, Object>();
-
+	
 	@JsonAnyGetter
 	public Map<String, Object> getPropertyMap() {
 		return propertyMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
@@ -122,5 +124,14 @@ public class Content implements Serializable {
 	public void setContentPrivacy(Privacy contentPrivacy) {
 		this.contentPrivacy = contentPrivacy;
 	}
-    
+
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
+	
+	
 }

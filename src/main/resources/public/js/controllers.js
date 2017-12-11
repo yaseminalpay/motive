@@ -51,6 +51,16 @@ angular.module('app.controllers', [])
             });
             $scope.savedInterests = Interest.query();
         })
+    .controller('ItemCreateController',
+         function($scope, $state, $stateParams, Item) {
+            $scope.item = new Item();
+
+            $scope.addQuery = function() {
+                $scope.item.$save(function() {
+                    $state.go('items');
+                });
+            };
+        })
     .controller('TweetSearchController',
         function($scope, $stateParams, SearchedTweet) {
             $scope.savedTweets = SearchedTweet.query({

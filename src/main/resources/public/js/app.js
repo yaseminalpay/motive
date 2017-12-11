@@ -82,6 +82,10 @@
             url: '/contents/:interestId',
             templateUrl: viewsPrefix + 'home.html',
             controller: 'GetContentsByInterestController'
+        }).state('newItem', {
+            url: '/items/new',
+            templateUrl: viewsPrefix + 'item-add.html',
+            controller: 'ItemCreateController'
         }).state('search', {
             url: '/search/:queryString',
             templateUrl: viewsPrefix + 'home.html',
