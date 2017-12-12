@@ -16,47 +16,47 @@ import java.util.List;
 public class ContentController {
 
     @Autowired
-    private IContentService contentDAO;
+    private IContentService contentService;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Content> create(@RequestBody @Valid Content content) {
-        contentDAO.createContent(content);
+        contentService.createContent(content);
         return new ResponseEntity<>(content, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResponseEntity<Content> get(@PathVariable("id") String id) {
-        return new ResponseEntity<>(contentDAO.getContentById(id), HttpStatus.OK);
+        return new ResponseEntity<>(contentService.getContentById(id), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Content>> getByInterest(@RequestParam(value = "interestId", required = true) String interestId) {
-        return new ResponseEntity<>(contentDAO.getContentsByInterest(interestId), HttpStatus.OK);
+        return new ResponseEntity<>(contentService.getContentsByInterest(interestId), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/tag/{tag}")
     public ResponseEntity<Content> tag(@PathVariable("id") String id, @PathVariable("tag") String tag) {
-        return new ResponseEntity<>(contentDAO.tagContent(id, tag), HttpStatus.OK);
+        return new ResponseEntity<>(contentService.tagContent(id, tag), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/{id}/tag/{tag}")
     public ResponseEntity<Content> removeTag(@PathVariable("id") String id, @PathVariable("tag") String tag) {
-        return new ResponseEntity<>(contentDAO.removeTagFromContent(id, tag), HttpStatus.OK);
+        return new ResponseEntity<>(contentService.removeTagFromContent(id, tag), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/privacy/{privacy}")
     public ResponseEntity<Content> modifyPrivacy(@PathVariable("id") String id, @PathVariable("privacy") Privacy privacy) {
-        return new ResponseEntity<>(contentDAO.modifyContentPrivacy(id, privacy), HttpStatus.OK);
+        return new ResponseEntity<>(contentService.modifyContentPrivacy(id, privacy), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/upVote")
     public ResponseEntity<Content> upVote(@PathVariable("id") String id) {
-        return new ResponseEntity<>(contentDAO.upVoteContent(id), HttpStatus.OK);
+        return new ResponseEntity<>(contentService.upVoteContent(id), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/downVote")
     public ResponseEntity<Content> downVote(@PathVariable("id") String id) {
-        return new ResponseEntity<>(contentDAO.downVoteContent(id), HttpStatus.OK);
+        return new ResponseEntity<>(contentService.downVoteContent(id), HttpStatus.OK);
     }
 
 }

@@ -10,13 +10,11 @@ angular.module('app.controllers', [])
             });
             $scope.savedInterests = Interest.query();
         })
-    .controller('ItemCreateController',
-         function($scope, $state, $stateParams, Item) {
-            $scope.item = new Item();
+    .controller('ContentCreateController',
+         function($scope, $state, $stateParams, Content) {
+             $scope.content = new Content();
 
-            $scope.addQuery = function() {
-                $scope.item.$save(function() {
-                    $state.go('items');
-                });
+            $scope.addContent = function() {
+                $scope.content.$save();
             };
         });

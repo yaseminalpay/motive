@@ -53,10 +53,10 @@
             url: '/contents/:interestId',
             templateUrl: viewsPrefix + 'home.html',
             controller: 'GetContentsByInterestController'
-        }).state('newItem', {
-            url: '/items/new',
-            templateUrl: viewsPrefix + 'item-add.html',
-            controller: 'ItemCreateController'
+        }).state('newContent', {
+            url: '/contents/new',
+            templateUrl: viewsPrefix + 'content-add.html',
+            controller: 'ContentCreateController'
         })
     })
         .directive('updateTitle', ['$rootScope', '$timeout',

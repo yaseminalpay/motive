@@ -15,17 +15,17 @@ import javax.validation.Valid;
 public class UserController {
 
     @Autowired
-    private IUserService userDAO;
+    private IUserService userService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<User> create(@RequestBody @Valid User user) {
-        userDAO.createUser(user);
+        userService.createUser(user);
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{username}")
     public ResponseEntity<User> getByUsername(@PathVariable("username") String username) {
-        return new ResponseEntity<>(userDAO.getUserByUsername(username), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUserByUsername(username), HttpStatus.OK);
     }
 
 }

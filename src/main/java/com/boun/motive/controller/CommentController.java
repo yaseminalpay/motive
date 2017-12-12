@@ -16,16 +16,16 @@ import java.util.List;
 public class CommentController {
 
     @Autowired
-    ICommentService commentDAO;
+    ICommentService commentService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/")
     public ResponseEntity<Comment> create(@RequestBody @Valid Comment comment) {
-        commentDAO.createComment(comment);
+        commentService.createComment(comment);
         return new ResponseEntity<>(comment, HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Comment>> get(@RequestParam("contentId") String contentId) {
-        return new ResponseEntity<>(commentDAO.getCommentsByContentId(contentId), HttpStatus.OK);
+        return new ResponseEntity<>(commentService.getCommentsByContentId(contentId), HttpStatus.OK);
     }
 }
