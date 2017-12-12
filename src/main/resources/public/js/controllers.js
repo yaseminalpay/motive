@@ -10,6 +10,12 @@ angular.module('app.controllers', [])
             });
             $scope.savedInterests = Interest.query();
         })
+    .controller('ContentViewController',
+        function($scope, $stateParams, Content) {
+            $scope.content = Content.get({
+                id : $stateParams.id
+            });
+        })
     .controller('ContentCreateController',
          function($scope, $state, $stateParams, Content) {
              $scope.content = new Content();

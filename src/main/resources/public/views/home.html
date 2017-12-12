@@ -6,7 +6,7 @@
 
             <h1 class="my-4">Interests</h1>
             <div class="list-group" ng-repeat="interest in savedInterests">
-                <a ng-href="index.html#/contents/{{interest.id}}" class="list-group-item">{{interest.title}}</a>
+                <a ng-href="#/contents/{{interest.id}}" class="list-group-item">{{interest.title}}</a>
             </div>
 
         </div>
@@ -25,9 +25,8 @@
 
             <div class="row placeholders">
                 <div class="col-xs-6 col-sm-3 placeholder list-group-item" ng-repeat="content in savedContents">
-                    <img src="{{content.imgPath}}"
-                         width="200" height="200" class="img-responsive">
-                    <h4>{{content.title}}</h4>
+                    <img src="{{content.imgPath}}" width="200" height="200" class="img-responsive">
+                    <a ng-href="#/contentdetails/{{content.id}}">{{content.title}}</a>
                     <span class="text-muted">{{content.interestId}}</span>
                 </div>
 

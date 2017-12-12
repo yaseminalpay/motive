@@ -57,7 +57,12 @@
             url: '/contents/new',
             templateUrl: viewsPrefix + 'content-add.html',
             controller: 'ContentCreateController'
+        }).state('contentDetail', {
+            url: '/contentdetails/:id',
+            templateUrl: viewsPrefix + 'content-view.html',
+            controller: 'ContentViewController'
         })
+
     })
         .directive('updateTitle', ['$rootScope', '$timeout',
             function ($rootScope, $timeout) {
