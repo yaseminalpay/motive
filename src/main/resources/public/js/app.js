@@ -52,7 +52,7 @@
                 }
         }).state('home.contents', {
             url: '/contents/:interestId',
-            templateUrl: viewsPrefix + 'content-by-interest.html',
+            templateUrl: viewsPrefix + 'content-list.html',
             controller: 'GetContentsByInterestController'
         }).state('newContent', {
             url: '/contents/new',
