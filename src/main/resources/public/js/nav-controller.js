@@ -12,11 +12,11 @@ angular.module('navController', [])
 			},
 			{
                 name: 'Profile',
-                url: '#/queries'
+                url: '#/profile'
             },
             {
                 name: 'Notifications',
-                url: '#/tweets'
+                url: '#/notifications'
             }
 		]
 	});
