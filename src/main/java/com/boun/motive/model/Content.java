@@ -28,7 +28,9 @@ public class Content implements Serializable {
     private String title;
 
     private String imgPath;
-        
+
+    private String description;
+
     private List<String> tags;
     
     private String userId;
@@ -77,7 +79,15 @@ public class Content implements Serializable {
 		this.title = title;
 	}
 
-	public List<String> getTags() {
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<String> getTags() {
 		return tags;
 	}
 
