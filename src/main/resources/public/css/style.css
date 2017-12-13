@@ -11,10 +11,10 @@ body {
 .pad-top {
   padding-top: 60px;
 }
-.funtweettable tr td:nth-child(2) {
+.motivetable tr td:nth-child(2) {
   width: 150px;
 }
-.funtweettable tr:nth-child(1) td {
+.motivetable tr:nth-child(1) td {
   border-top: none;
 }
 /* Have to set height explicity on ui-view
