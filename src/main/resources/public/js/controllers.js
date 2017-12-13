@@ -27,4 +27,8 @@ angular.module('app.controllers', [])
             $scope.addContent = function () {
                 $scope.content.$save();
             };
+
+            //setting the interest id of create content form
+            var selected = $("#selectedInterest").text();
+            $scope.selectedInterest = selected;
         });
