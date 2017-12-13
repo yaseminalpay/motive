@@ -50,15 +50,9 @@
                 data: {
                     pageTitle: 'Home'
                 }
-        }).state('home.list', {
-            url: '/list',
-            templateUrl: viewsPrefix + 'partial-home-list.html',
-            controller: function($scope) {
-                $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
-            }
-        }).state('contents', {
+        }).state('home.contents', {
             url: '/contents/:interestId',
-            templateUrl: viewsPrefix + 'home.html',
+            templateUrl: viewsPrefix + 'content-by-interest.html',
             controller: 'GetContentsByInterestController'
         }).state('newContent', {
             url: '/contents/new',
