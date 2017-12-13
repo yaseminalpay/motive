@@ -1,0 +1,8 @@
+<div class="row placeholders">
+    <div class="col-xs-6 col-sm-3 placeholder list-group-item" ng-repeat="content in savedContents">
+        <img src="{{content.imgPath}}" width="200" height="200" class="img-responsive">
+        <a ng-href="#/contentdetails/{{content.id}}">{{content.title}}</a>
+        <span class="text-muted">{{content.interestId}}</span>
+    </div>
+
+</div>

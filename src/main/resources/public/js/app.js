@@ -35,20 +35,27 @@
             return origController.apply(this, arguments);
         }
 
+
         var viewsPrefix = 'views/';
 
         // For any unmatched url, send to /
-        $urlRouterProvider.otherwise("/")
+        $urlRouterProvider.otherwise("/home")
 
         $stateProvider
         // you can set this to no template if you just want to use the html in the page
             .state('home', {
-                url: "/",
+                url: "/home",
                 templateUrl: viewsPrefix + "home.html",
                 controller: 'InterestGetController',
                 data: {
                     pageTitle: 'Home'
                 }
+        }).state('home.list', {
+            url: '/list',
+            templateUrl: viewsPrefix + 'partial-home-list.html',
+            controller: function($scope) {
+                $scope.dogs = ['Bernese', 'Husky', 'Goldendoodle'];
+            }
         }).state('contents', {
             url: '/contents/:interestId',
             templateUrl: viewsPrefix + 'home.html',
