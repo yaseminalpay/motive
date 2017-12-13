@@ -9,6 +9,11 @@ angular.module('app.controllers', [])
                 interestId: $stateParams.interestId
             });
             $scope.savedInterests = Interest.query();
+
+            //getting the id of selected interest for later use with jquery
+            $("#divForInterests a").click(
+                $("#selectedInterest").text($stateParams.interestId)
+            );
         })
     .controller('ContentViewController',
         function($scope, $stateParams, Content) {
