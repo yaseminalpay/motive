@@ -19,7 +19,6 @@ angular.module('app.controllers', [])
     .controller('ContentCreateController',
          function($scope, $state, $stateParams, Content) {
              $scope.content = new Content();
-
             $scope.addContent = function() {
                 $scope.content.$save();
             };

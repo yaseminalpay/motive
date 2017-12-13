@@ -31,3 +31,9 @@ to prevent collapsing during animation*/
     text-overflow: ellipsis;
     max-width: 300px;
 }
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    display: flex;
+    align-items: center;
+}
