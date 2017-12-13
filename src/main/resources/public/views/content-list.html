@@ -1,11 +1,11 @@
 <div class="row placeholders">
-    <div class="card col-xs-6 col-sm-3 placeholder" style="width: 20rem;" ng-repeat="content in savedContents">
-        <img class="card-img-top" src="{{content.imgPath}}" alt="No image">
-        <div class="card-block">
-            <h4 class="card-title">{{content.title}}</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a ng-href="#/contentdetails/{{content.id}}">View Details</a>
-        </div>
+    <div class="col-xs-6 col-sm-3 placeholder list-group-item" ng-repeat="content in savedContents">
+        <img src="{{content.imgPath}}"
+             width="200" height="200" alt="No image">
+        <h4>{{content.title}}</h4>
+        <p class = "text-limit">{{content.description}}</p>
+        <span class="text-muted">{{content.interestId}}</span>
+        <a ng-href="#/contentdetails/{{content.id}}">View Details</a>
     </div>
+
 </div>

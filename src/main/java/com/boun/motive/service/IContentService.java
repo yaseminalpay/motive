@@ -14,4 +14,5 @@ public interface IContentService {
     Content modifyContentPrivacy(String id, Privacy privacy);
     Content upVoteContent(String id);
     Content downVoteContent(String id);
+    void deleteContent(String id);
 }

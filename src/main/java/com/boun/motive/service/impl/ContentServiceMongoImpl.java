@@ -82,4 +82,9 @@ public class ContentServiceMongoImpl implements IContentService {
 		return content;
 
 	}
+
+	@Override
+	public void deleteContent(String id) {
+		contentMongoRepository.delete(id);
+	}
 }

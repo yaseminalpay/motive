@@ -25,3 +25,9 @@ to prevent collapsing during animation*/
 .ui-view-container {
   position: relative;
 }
+.text-limit{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}

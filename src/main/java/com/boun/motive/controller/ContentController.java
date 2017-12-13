@@ -59,4 +59,10 @@ public class ContentController {
         return new ResponseEntity<>(contentService.downVoteContent(id), HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") String id) {
+        contentService.deleteContent(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
 }
