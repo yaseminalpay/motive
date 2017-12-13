@@ -1,11 +1,14 @@
-<div class="row placeholders">
-    <div class="col-xs-6 col-sm-3 placeholder list-group-item" ng-repeat="content in savedContents">
-        <img src="{{content.imgPath}}"
-             width="200" height="200" alt="No image">
-        <h4>{{content.title}}</h4>
-        <p class = "text-limit">{{content.description}}</p>
-        <span class="text-muted">{{content.interestId}}</span>
-        <a ng-href="#/contentdetails/{{content.id}}">View Details</a>
+<div class="row">
+    <div class="col-lg-4 col-md-6 mb-4" ng-repeat="content in savedContents">
+        <div class="card h-100">
+            <img class="card-img-top" src="{{content.imgPath}}" alt="" style="height: 150px" >
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a ng-href="#/contentdetails/{{content.id}}">{{content.title}}</a>
+                </h4>
+                <p class="card-text">{{content.description}}</p>
+                <a ng-href="#/contentdetails/{{content.id}}">View Details</a>
+            </div>
+        </div>
     </div>
-
 </div>
