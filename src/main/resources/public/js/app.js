@@ -55,7 +55,7 @@
             templateUrl: viewsPrefix + 'content-list.html',
             controller: 'GetContentsByInterestController'
         }).state('newContent', {
-            url: '/contents/new/:selectedInterestId',
+            url: '/contents/new',
             templateUrl: viewsPrefix + 'content-add.html',
             controller: 'ContentCreateController'
         }).state('contentDetail', {
