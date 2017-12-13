@@ -24,11 +24,12 @@ angular.module('app.controllers', [])
     .controller('ContentCreateController',
         function ($scope, $state, $stateParams, Content) {
             $scope.content = new Content();
+            //setting the interest id of create content form
+            var selected = $("#selectedInterest").text();
+            $scope.content.interestId = selected;
             $scope.addContent = function () {
                 $scope.content.$save();
             };
 
-            //setting the interest id of create content form
-            var selected = $("#selectedInterest").text();
-            $scope.selectedInterest = selected;
+
         });
