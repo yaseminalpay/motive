@@ -22,14 +22,21 @@ angular.module('app.controllers', [])
             });
         })
     .controller('ContentCreateController',
-        function ($scope, $state, $stateParams, Content) {
+        function ($scope, $state, $sce, $stateParams, Content, InterestProperties) {
             $scope.content = new Content();
+
             //setting the interest id of create content form
             var selected = $("#selectedInterest").text();
             $scope.content.interestId = selected;
+
+            //generating interest-custom fields
+            $scope.interestProperties = InterestProperties.query({
+                id: selected
+            });
+
             $scope.addContent = function () {
                 $scope.content.$save();
             };
 
-
-        });
+        })
+    ;
