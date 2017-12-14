@@ -5,35 +5,44 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 
 public class CustomProperty implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3627754159059163862L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 3627754159059163862L;
 
-	@NotNull
-	private String name;
+    @NotNull
+    private String name;
 
-	@NotNull
-	private String type;
-	
-	public CustomProperty() {
-	}
+    @NotNull
+    private String type;
 
-	public String getName() {
-		return name;
-	}
+    @NotNull
+    private String description;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public CustomProperty() {
+    }
 
-	public String getType() {
-		return type;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getType() {
+        return type;
+    }
 
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

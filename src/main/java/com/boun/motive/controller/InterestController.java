@@ -1,5 +1,6 @@
 package com.boun.motive.controller;
 
+import com.boun.motive.model.CustomProperty;
 import com.boun.motive.model.Interest;
 import com.boun.motive.service.IInterestService;
 import com.boun.motive.util.constant.Privacy;
@@ -32,6 +33,11 @@ public class InterestController {
     @RequestMapping(method = RequestMethod.GET, value = "/{userId}")
     public ResponseEntity<List<Interest>> get(@RequestParam("userId") String userId ) {
         return new ResponseEntity<>(interestService.getInterestsByUserId(userId), HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/{id}/properties")
+    public ResponseEntity<List<CustomProperty>> getProperties(@RequestParam("id") String id ) {
+        return new ResponseEntity<>(interestService.getProperties(id), HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/search/q")

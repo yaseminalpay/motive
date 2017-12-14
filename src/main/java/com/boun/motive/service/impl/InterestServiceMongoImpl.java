@@ -1,5 +1,6 @@
 package com.boun.motive.service.impl;
 
+import com.boun.motive.model.CustomProperty;
 import com.boun.motive.model.Interest;
 import com.boun.motive.repository.InterestMongoRepository;
 import com.boun.motive.service.IInterestService;
@@ -37,14 +38,19 @@ public class InterestServiceMongoImpl implements IInterestService {
 
     @Override
     public List<Interest> getInterestsByUserId(String userId) {
-
         return interestMongoRepository.findByUserId(userId);
-
     }
 
     @Override
     public List<Interest> getInterestByKeyword(String keyword) {
         return interestMongoRepository.findByTitleContains(keyword);
+    }
+
+    @Override
+    public List<CustomProperty> getProperties(String id) {
+        Interest interest = interestMongoRepository.findOne(id);
+        List<CustomProperty> properties = interest.getProperties();
+        return properties;
     }
 
     @Override
