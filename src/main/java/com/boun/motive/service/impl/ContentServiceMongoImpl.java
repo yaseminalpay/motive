@@ -20,6 +20,12 @@ public class ContentServiceMongoImpl implements IContentService {
 		return content;
 
 	}
+	
+	@Override
+	public List<Content> getAllContents() {
+		List<Content> contents = contentMongoRepository.findAll();
+		return contents;
+	}
 
 	@Override
 	public Content getContentById(String id) {
@@ -87,4 +93,5 @@ public class ContentServiceMongoImpl implements IContentService {
 	public void deleteContent(String id) {
 		contentMongoRepository.delete(id);
 	}
+
 }

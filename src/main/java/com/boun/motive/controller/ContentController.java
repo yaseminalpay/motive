@@ -23,14 +23,19 @@ public class ContentController {
         contentService.createContent(content);
         return new ResponseEntity<>(content, HttpStatus.CREATED);
     }
+    
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<Content>> get() {
+        return new ResponseEntity<>(contentService.getAllContents(), HttpStatus.OK);
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public ResponseEntity<Content> get(@PathVariable("id") String id) {
         return new ResponseEntity<>(contentService.getContentById(id), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Content>> getByInterest(@RequestParam(value = "interestId", required = true) String interestId) {
+    @RequestMapping(method = RequestMethod.GET, value = "/interest/{interestId}")
+    public ResponseEntity<List<Content>> getByInterest(@PathVariable(value = "interestId", required = true) String interestId) {
         return new ResponseEntity<>(contentService.getContentsByInterest(interestId), HttpStatus.OK);
     }
 

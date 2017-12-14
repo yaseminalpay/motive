@@ -44,12 +44,12 @@
         $stateProvider
         // you can set this to no template if you just want to use the html in the page
             .state('home', {
-                url: "/home",
-                templateUrl: viewsPrefix + "home.html",
-                controller: 'InterestGetController',
-                data: {
-                    pageTitle: 'Home'
-                }
+	            url: "/home",
+	            templateUrl: viewsPrefix + "home.html",
+	            controller: 'InterestGetController',
+	            data: {
+	                pageTitle: 'Home'
+	            }
         }).state('home.contents', {
             url: '/contents/:interestId',
             templateUrl: viewsPrefix + 'content-list.html',

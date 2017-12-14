@@ -6,6 +6,9 @@ angular.module('app.services', [])
             }
         });
     })
+    .factory('ContentByInterest', function($resource) {
+        return $resource('/api/v1/contents/interest/:interestId', { interestId: '@interestId'});
+    })
     .factory('Interest', function($resource) {
         return $resource('/api/v1/interests/:queryString', { queryString: '' });
     })

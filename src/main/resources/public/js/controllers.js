@@ -1,14 +1,17 @@
 angular.module('app.controllers', [])
     .controller('InterestGetController',
-        function ($scope, $stateParams, Interest) {
+        function ($scope, $stateParams, Interest, Content) {
             $scope.savedInterests = Interest.query();
+            $scope.savedContents = Content.query({
+                interestId: ''
+            });
         })
     .controller('GetContentsByInterestController',
-        function ($scope, $stateParams, Content, Interest) {
-            $scope.savedContents = Content.query({
+        function ($scope, $stateParams, Content, ContentByInterest) {
+            $scope.savedContents = ContentByInterest.query({
                 interestId: $stateParams.interestId
             });
-            $scope.savedInterests = Interest.query();
+            $scope.savedInterests = ContentByInterest.query();
 
             //getting the id of selected interest for later use with jquery
             $("#divForInterests a").click(
@@ -45,7 +48,6 @@ angular.module('app.controllers', [])
                 var html = "";
 
                 for (var i = 0; i < $scope.properties.length; i++) {
-                    console.log("propertyname", $scope.properties[i].name);
                     var property = $scope.properties[i];
                     html += "<div class=\"form-group\">" +
                         "<label for=\"" + property.name + "\" class=\"col-lg-2 control-label\">" + property.description + "</label>" +

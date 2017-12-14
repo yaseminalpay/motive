@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface IContentService {
     Content createContent(Content content);
+    List<Content> getAllContents();
     Content getContentById(String id);
     List<Content> getContentsByInterest(String interestId);
     Content tagContent(String id, String tag);
