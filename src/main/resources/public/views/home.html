@@ -6,7 +6,15 @@
 
             <h1 class="my-4">Motives</h1>
             <div id = "divForInterests" class="list-group" ng-repeat="interest in savedInterests">
-                <a ui-sref=".contents({interestId: interest.id})" class="list-group-item">{{interest.title}}</a>
+                 <div class="list-group-item">
+	                 <button
+	                    type="button"
+	                    class="btn btn-default btn-xs add-button"
+	                    ui-sref="newContent"><i class="fa fa-plus-square icon-cog ui-sref="newContent"></i>
+	            	</button>
+	                <a ui-sref=".contents({interestId: interest.id})"">{{interest.title}}</a>
+              	</div>
+                
             </div>
 
         </div>
