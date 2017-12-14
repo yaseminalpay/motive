@@ -8,4 +8,8 @@ angular.module('app.services', [])
     })
     .factory('Interest', function($resource) {
         return $resource('/api/v1/interests/:queryString', { queryString: '' });
+    })
+    .factory('InterestProperties', function($resource) {
+        return $resource('/api/v1/interests/:id/properties', { id: '@id' }, {
+        });
     });
