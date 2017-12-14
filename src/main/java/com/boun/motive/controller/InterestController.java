@@ -36,7 +36,7 @@ public class InterestController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}/properties")
-    public ResponseEntity<List<CustomProperty>> getProperties(@RequestParam("id") String id ) {
+    public ResponseEntity<List<CustomProperty>> getProperties(@PathVariable("id") String id ) {
         return new ResponseEntity<>(interestService.getProperties(id), HttpStatus.OK);
     }
 
