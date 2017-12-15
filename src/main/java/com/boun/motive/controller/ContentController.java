@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.boun.motive.model.Comment;
 import com.boun.motive.model.Content;
 import com.boun.motive.service.IContentService;
 import com.boun.motive.util.constant.Privacy;
@@ -47,7 +46,7 @@ public class ContentController {
     }
     
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/comment")
-    public ResponseEntity<Content> comment(@PathVariable("id") String id, @RequestBody Comment comment) {
+    public ResponseEntity<Content> comment(@PathVariable("id") String id, @RequestBody String comment) {
         return new ResponseEntity<>(contentService.comment(id, comment), HttpStatus.OK);
     }
     

@@ -32,7 +32,7 @@ public class Content implements Serializable {
 
     private String description;
     
-    private List<Comment> comments;
+    private List<String> comments;
 
     private List<String> tags;
     
@@ -98,11 +98,11 @@ public class Content implements Serializable {
 		this.tags = tags;
 	}
 	
-	public List<Comment> getComments() {
+	public List<String> getComments() {
 		return comments;
 	}
 
-	public void setComments(List<Comment> comments) {
+	public void setComments(List<String> comments) {
 		this.comments = comments;
 	}
 

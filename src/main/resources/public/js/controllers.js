@@ -19,15 +19,14 @@ angular.module('app.controllers', [])
             );
         })
     .controller('ContentViewController',
-        function ($scope, $stateParams, Content) {
+        function ($scope, $stateParams, Content, $http, $compile) {
             $scope.content = Content.get({
                 id: $stateParams.id
             });
             
              $scope.addComment = function (comment) {
-                console.log(comment);
+                $http.put('/api/v1/contents/' + $stateParams.id + '/comment', comment);
             };
-            
         })
     .controller('ContentCreateController',
         function ($scope, $state, $sce, $stateParams, Content, InterestProperties) {

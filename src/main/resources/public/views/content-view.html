@@ -18,10 +18,18 @@
 				</form>
 			</div>
 		</div>
-		<div class="card" ng-repeat="comment in content.comments">
+		<div class="card" ng-repeat="comment in content.comments" id="divcomment">
 			<div class="card-block">
-				<p class="card-text">{{comment.description}}</p>
+				<p class="card-text">{{comment}}</p>
 			</div>
 		</div>
+		
 	</div>
 </div>
+
+
+<script type="text/ng-template" id="form1.tpl.html">
+ 	<label>
+ 		Form one is an input: <input type="text" />
+ 	</label>
+</script>

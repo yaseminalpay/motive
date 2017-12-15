@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.boun.motive.model.Comment;
 import com.boun.motive.model.Content;
 import com.boun.motive.repository.ContentMongoRepository;
 import com.boun.motive.service.IContentService;
@@ -40,9 +39,9 @@ public class ContentServiceMongoImpl implements IContentService {
 	}
 	
 	@Override
-	public Content comment(String id, Comment comment) {
+	public Content comment(String id, String comment) {
 		Content content = contentMongoRepository.findOne(id);
-		List<Comment> comments = content.getComments();
+		List<String> comments = content.getComments();
 		if (!comments.isEmpty() && comments.contains(comment)) {
 			return content;
 		} else {
