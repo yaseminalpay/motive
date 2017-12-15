@@ -1,15 +1,22 @@
 package com.boun.motive.controller;
 
-import com.boun.motive.model.Content;
-import com.boun.motive.service.IContentService;
-import com.boun.motive.util.constant.Privacy;
+import java.util.List;
+
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
-import java.util.List;
+import com.boun.motive.model.Comment;
+import com.boun.motive.model.Content;
+import com.boun.motive.service.IContentService;
+import com.boun.motive.util.constant.Privacy;
 
 @RestController
 @RequestMapping("api/v1/contents")
@@ -38,7 +45,12 @@ public class ContentController {
     public ResponseEntity<List<Content>> getByInterest(@PathVariable(value = "interestId", required = true) String interestId) {
         return new ResponseEntity<>(contentService.getContentsByInterest(interestId), HttpStatus.OK);
     }
-
+    
+    @RequestMapping(method = RequestMethod.PUT, value = "/{id}/comment")
+    public ResponseEntity<Content> comment(@PathVariable("id") String id, @RequestBody Comment comment) {
+        return new ResponseEntity<>(contentService.comment(id, comment), HttpStatus.OK);
+    }
+    
     @RequestMapping(method = RequestMethod.PUT, value = "/{id}/tag/{tag}")
     public ResponseEntity<Content> tag(@PathVariable("id") String id, @PathVariable("tag") String tag) {
         return new ResponseEntity<>(contentService.tagContent(id, tag), HttpStatus.OK);

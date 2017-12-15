@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.boun.motive.model.Comment;
 import com.boun.motive.model.Content;
 import com.boun.motive.repository.ContentMongoRepository;
 import com.boun.motive.service.IContentService;
@@ -36,6 +37,19 @@ public class ContentServiceMongoImpl implements IContentService {
 	public List<Content> getContentsByInterest(String interestId) {
 		List<Content> contents = contentMongoRepository.findByInterestId(interestId);
 		return contents;
+	}
+	
+	@Override
+	public Content comment(String id, Comment comment) {
+		Content content = contentMongoRepository.findOne(id);
+		List<Comment> comments = content.getComments();
+		if (!comments.isEmpty() && comments.contains(comment)) {
+			return content;
+		} else {
+			comments.add(comment);
+			contentMongoRepository.save(content);
+		}
+		return content;
 	}
 
 	@Override

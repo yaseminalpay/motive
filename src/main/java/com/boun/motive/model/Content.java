@@ -1,18 +1,19 @@
 package com.boun.motive.model;
 
-import com.boun.motive.util.constant.Privacy;
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import javax.validation.constraints.NotNull;
 
 import org.codehaus.jackson.annotate.JsonAnyGetter;
 import org.codehaus.jackson.annotate.JsonAnySetter;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.data.annotation.Id;
 
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import com.boun.motive.util.constant.Privacy;
 
 public class Content implements Serializable {
 
@@ -30,6 +31,8 @@ public class Content implements Serializable {
     private String imgPath;
 
     private String description;
+    
+    private List<Comment> comments;
 
     private List<String> tags;
     
@@ -93,6 +96,14 @@ public class Content implements Serializable {
 
 	public void setTags(List<String> tags) {
 		this.tags = tags;
+	}
+	
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 	public String getUserId() {

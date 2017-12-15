@@ -1,14 +1,27 @@
 <div class="container pad-top">
-    <table class="table funtweettable">
-        <tr>
-            <td><h3>{{content.title}}</h3></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td><img ng-src="{{content.imgPath}}" width="200" height="200" class="img-responsive"></td>
-        </tr>
-        <tr>
-            <td>test</td>
-        </tr>
-    </table>
+
+	<div class="card">
+	  <h3 class="card-header">{{content.title}}</h3>
+	  <div class="card-block">
+	  	<img ng-src="{{content.imgPath}}" width="200" height="200" class="img-responsive">
+	    <p class="card-text">{{content.description}}</p>
+	  </div>
+	</div>
+
+	<div class="card">
+		<h5 class="card-header">Comments:</h5>
+		<div class="card">
+			<div class="card-block">
+				<form>
+					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="What do you think?"></textarea>
+					<button type="submit" role="form" class="btn btn-sm btn-success green"><i class="fa fa-comment"></i> Comment</button>
+				</form>
+			</div>
+		</div>
+		<div class="card" ng-repeat="comment in content.comments">
+			<div class="card-block">
+				<p class="card-text">{{comment.description}}</p>
+			</div>
+		</div>
+	</div>
 </div>
