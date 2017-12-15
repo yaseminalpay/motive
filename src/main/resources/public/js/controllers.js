@@ -23,6 +23,11 @@ angular.module('app.controllers', [])
             $scope.content = Content.get({
                 id: $stateParams.id
             });
+            
+             $scope.addComment = function (comment) {
+                console.log(comment);
+            };
+            
         })
     .controller('ContentCreateController',
         function ($scope, $state, $sce, $stateParams, Content, InterestProperties) {

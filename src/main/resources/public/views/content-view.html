@@ -12,9 +12,9 @@
 		<h5 class="card-header">Comments:</h5>
 		<div class="card">
 			<div class="card-block">
-				<form>
-					<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="What do you think?"></textarea>
-					<button type="submit" role="form" class="btn btn-sm btn-success green"><i class="fa fa-comment"></i> Comment</button>
+				<form ng-submit="addComment(comment)" role="form">
+					<textarea class="form-control" ng-model="comment" rows="3" placeholder="What do you think?"></textarea>
+					<button type="submit" class="btn btn-sm btn-success green"><i class="fa fa-comment"></i> Comment</button>
 				</form>
 			</div>
 		</div>
