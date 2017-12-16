@@ -26,6 +26,14 @@ angular.module('app.controllers', [])
             
              $scope.addComment = function (comment) {
                 $http.put('/api/v1/contents/' + $stateParams.id + '/comment', comment);
+                var myEl = angular.element( document.querySelector( '#div-for-new-comment' ) );
+                var html = "<div class=\"card\">" +
+								"<div class=\"card-block\">" + 
+									"<p class=\"card-text\">" + comment + "</p>" +
+								"</div>" +
+							"</div>";
+							
+     			myEl.append(html);
             };
         })
     .controller('ContentCreateController',
