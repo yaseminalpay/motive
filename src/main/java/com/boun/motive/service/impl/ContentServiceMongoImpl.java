@@ -1,5 +1,6 @@
 package com.boun.motive.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,10 +43,14 @@ public class ContentServiceMongoImpl implements IContentService {
 	public Content comment(String id, String comment) {
 		Content content = contentMongoRepository.findOne(id);
 		List<String> comments = content.getComments();
-		if (!comments.isEmpty() && comments.contains(comment)) {
+		if (comments != null && comments.contains(comment)) {
 			return content;
 		} else {
+			if(comments == null) {
+				comments = new ArrayList<>();
+			}
 			comments.add(comment);
+			content.setComments(comments);
 			contentMongoRepository.save(content);
 		}
 		return content;
@@ -55,10 +60,14 @@ public class ContentServiceMongoImpl implements IContentService {
 	public Content tagContent(String id, String tag) {
 		Content content = contentMongoRepository.findOne(id);
 		List<String> tags = content.getTags();
-		if (!tags.isEmpty() && tags.contains(tag)) {
+		if (tags != null && tags.contains(tag)) {
 			return content;
 		} else {
+			if(tags == null) {
+				tags = new ArrayList<>();
+			}
 			tags.add(tag);
+			content.setTags(tags);
 			contentMongoRepository.save(content);
 		}
 		return content;
