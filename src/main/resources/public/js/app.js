@@ -50,6 +50,10 @@
 	            data: {
 	                pageTitle: 'Home'
 	            }
+        }).state('newInterest', {
+            url: '/interests/new',
+            templateUrl: viewsPrefix + 'interest-add.html',
+            controller: 'InterestCreateController'
         }).state('home.contents', {
             url: '/contents/:interestId',
             templateUrl: viewsPrefix + 'content-list.html',

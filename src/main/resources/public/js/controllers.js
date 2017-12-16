@@ -36,6 +36,14 @@ angular.module('app.controllers', [])
      			myEl.append(html);
             };
         })
+     .controller('InterestCreateController',
+        function ($scope, $state, $stateParams, $http, Interest) {
+        	$scope.interest = new Interest();
+            $scope.addInterest = function () {
+            	$scope.interest.properties = [];
+                $scope.interest.$save();
+            };
+        })
     .controller('ContentCreateController',
         function ($scope, $state, $sce, $stateParams, Content, InterestProperties) {
             $scope.content = new Content();

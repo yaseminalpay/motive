@@ -19,7 +19,7 @@ public class InterestController {
     @Autowired
     IInterestService interestService;
 
-    @RequestMapping(method = RequestMethod.POST, value = "/")
+    @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Interest> create(@RequestBody @Valid Interest interest) {
         interestService.createInterest(interest);
         return new ResponseEntity<>(interest, HttpStatus.CREATED);

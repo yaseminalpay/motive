@@ -4,14 +4,21 @@
 
         <div class="col-lg-3">
 
-            <h1 class="my-4">Motives</h1>
+			<div class="justify-content-between">
+	            <h1 class="my-4">Motives <button
+		             type="button"
+		             class="btn btn-default btn-sm add-button"
+		             ui-sref="newInterest"><i class="fa fa-plus-square icon-cog"></i>
+	             </button></h1>
+	            
+            </div>
             <div id = "divForInterests" class="list-group" ng-repeat="interest in savedInterests">
                  <div class="list-group-item justify-content-between">
 	                <a ui-sref=".contents({interestId: interest.id})">{{interest.title}}</a>
                      <button
                              type="button"
                              class="btn btn-default btn-xs add-button"
-                             ui-sref="newContent"><i class="fa fa-plus-square icon-cog" ui-sref="newContent"></i>
+                             ui-sref="newContent"><i class="fa fa-plus-square icon-cog"></i>
                      </button>
               	</div>
                 
