@@ -48,5 +48,9 @@ to prevent collapsing during animation*/
 }
 
 .icon-cog {
-    color: gainsboro;
+    color: #199CD2;
+}
+
+a{
+	color: black;
 }
