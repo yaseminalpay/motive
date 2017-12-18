@@ -1,13 +1,17 @@
 package com.boun.motive.service.impl;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.boun.motive.model.CustomProperty;
 import com.boun.motive.model.Interest;
 import com.boun.motive.repository.InterestMongoRepository;
 import com.boun.motive.service.IInterestService;
 import com.boun.motive.util.constant.Privacy;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.List;
 
 public class InterestServiceMongoImpl implements IInterestService {
 
@@ -22,6 +26,18 @@ public class InterestServiceMongoImpl implements IInterestService {
             //TODO exception
             return interest;
         }
+        //add custom fields
+        if(interest.getCustomFields() != null && !interest.getCustomFields().isEmpty()) {
+        	List<CustomProperty> properties = new ArrayList<>();
+        	List<String> fields = Arrays.asList(interest.getCustomFields().split("\\s*,\\s*"));
+        	for (String field : fields) {
+        		CustomProperty property = new CustomProperty();
+        		property.setDescription(field);
+				properties.add(property);
+			}
+        	interest.setProperties(properties);
+        }
+        	
         interestMongoRepository.save(interest);
         return interest;
     }
