@@ -1,5 +1,5 @@
 ### Build Status
-[![Build Status](https://travis-ci.org/yaseminalpay/motive.svg?branch=dev)](https://travis-ci.org/yaseminalpay/motive.svg?branch=dev)
+![Build Status](https://travis-ci.org/yaseminalpay/motive.svg?branch=master)
 
 
 
