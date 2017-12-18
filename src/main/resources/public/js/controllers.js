@@ -38,12 +38,31 @@ angular.module('app.controllers', [])
             };
         })
      .controller('InterestCreateController',
-        function ($scope, $state, $stateParams, $http, Interest) {
+        function ($scope, $state, $stateParams, Interest) {
+
         	$scope.interest = new Interest();
+			$scope.fields = [{}];
+
+        	$scope.addField = function() {
+			    $scope.fields.push({"type":"",
+			    "description":""
+			  	});
+		 	};
+        	
             $scope.addInterest = function () {
+            	
             	$scope.interest.properties = [];
+            	
+            	for (i = 0; i < $scope.fields.length; i++) {
+			      $scope.interest.properties.push({
+			        description: $scope.fields[i].description,
+			        type: $scope.fields[i].type
+			      });
+			    }
+            	
                 $scope.interest.$save();
             };
+            
         })
     .controller('ContentCreateController',
         function ($scope, $state, $sce, $stateParams, Content, InterestProperties) {

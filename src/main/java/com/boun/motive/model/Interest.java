@@ -26,8 +26,6 @@ public class Interest implements Serializable {
 
     private String userId;
     
-    private String customFields;
-
     @NotNull
 	private List<CustomProperty> properties;
     
@@ -82,13 +80,5 @@ public class Interest implements Serializable {
 
 	public void setProperties(List<CustomProperty> properties) {
 		this.properties = properties;
-	}
-
-	public String getCustomFields() {
-		return customFields;
-	}
-
-	public void setCustomFields(String customFields) {
-		this.customFields = customFields;
 	}
 }
