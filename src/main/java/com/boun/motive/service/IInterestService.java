@@ -9,6 +9,7 @@ import java.util.List;
 public interface IInterestService {
     Interest createInterest(Interest interest);
     List<Interest> getInterests();
+    Interest getInterest(String id);
     Interest getInterestByTitle(String title);
     List<Interest> getInterestsByUserId(String userId);
     List<Interest> getInterestByKeyword(String keyword);
