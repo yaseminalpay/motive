@@ -5,6 +5,10 @@
 	  <div class="card-block">
 	  	<img ng-src="{{content.imgPath}}" width="200" height="200" class="img-responsive">
 	    <p class="card-text">{{content.description}}</p>
+       	<div class="form-group justify-content-between" ng-repeat="cusField in content.customProperties">
+            <label control-label"><h5>{{cusField.description}}:</h5></label>
+            <p class="card-text">{{cusField.value}}</p>
+      	</div>
 	  </div>
 	</div>
 

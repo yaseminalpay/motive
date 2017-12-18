@@ -20,6 +20,7 @@ angular.module('app.controllers', [])
         })
     .controller('ContentViewController',
         function ($scope, $stateParams, Content, $http, $compile) {
+           
             $scope.content = Content.get({
                 id: $stateParams.id
             });
