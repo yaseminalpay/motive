@@ -32,6 +32,11 @@ public class InterestServiceMongoImpl implements IInterestService {
     }
 
     @Override
+    public Interest getInterest(String id) {
+        return interestMongoRepository.findOne(id);
+    }
+
+    @Override
     public Interest getInterestByTitle(String title) {
         return interestMongoRepository.findByTitle(title);
     }

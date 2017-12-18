@@ -19,6 +19,8 @@ public class CustomProperty implements Serializable {
     @NotNull
     private String description;
 
+    private Object value;
+
     public CustomProperty() {
     }
 
@@ -44,5 +46,13 @@ public class CustomProperty implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Object getValue() {
+        return value;
+    }
+
+    public void setValue(Object value) {
+        this.value = value;
     }
 }

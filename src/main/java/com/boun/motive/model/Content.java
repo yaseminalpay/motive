@@ -1,19 +1,11 @@
 package com.boun.motive.model;
 
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
-
-import javax.validation.constraints.NotNull;
-
-import org.codehaus.jackson.annotate.JsonAnyGetter;
-import org.codehaus.jackson.annotate.JsonAnySetter;
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.boun.motive.util.constant.Privacy;
 import org.springframework.data.annotation.Id;
 
-import com.boun.motive.util.constant.Privacy;
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+import java.util.List;
 
 public class Content implements Serializable {
 
@@ -47,21 +39,7 @@ public class Content implements Serializable {
 
     private Privacy contentPrivacy;
 
-	@JsonIgnore
-	private Map<String, Object> propertyMap = new HashMap<String, Object>();
-	
-	@JsonAnyGetter
-	public Map<String, Object> getPropertyMap() {
-		return propertyMap.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-	}
-
-	@JsonAnySetter
-	public void setPropertyMap(String name, Object value) {
-		if(propertyMap == null){
-			return;
-		}
-		propertyMap.put(name, value);
-	}
+	List<CustomProperty> customProperties;
 
 	public Content(){
     }
@@ -153,6 +131,12 @@ public class Content implements Serializable {
 	public void setImgPath(String imgPath) {
 		this.imgPath = imgPath;
 	}
-	
-	
+
+    public List<CustomProperty> getCustomProperties() {
+        return customProperties;
+    }
+
+    public void setCustomProperties(List<CustomProperty> customProperties) {
+        this.customProperties = customProperties;
+    }
 }
