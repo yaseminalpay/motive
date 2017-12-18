@@ -25,8 +25,6 @@ angular.module('app.controllers', [])
                 id: $stateParams.id
             });
             
-            console.log("content",  $scope.content);
-            
              $scope.addComment = function (comment) {
                 $http.put('/api/v1/contents/' + $stateParams.id + '/comment', comment);
                 var myEl = angular.element( document.querySelector( '#div-for-new-comment' ) );
