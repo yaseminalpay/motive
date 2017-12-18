@@ -24,6 +24,8 @@ angular.module('app.controllers', [])
                 id: $stateParams.id
             });
             
+            console.log("content",  $scope.content);
+            
              $scope.addComment = function (comment) {
                 $http.put('/api/v1/contents/' + $stateParams.id + '/comment', comment);
                 var myEl = angular.element( document.querySelector( '#div-for-new-comment' ) );
@@ -46,6 +48,7 @@ angular.module('app.controllers', [])
         })
     .controller('ContentCreateController',
         function ($scope, $state, $sce, $stateParams, Content, InterestProperties) {
+            
             $scope.content = new Content();
 
             //setting the interest id of create content form
@@ -57,30 +60,21 @@ angular.module('app.controllers', [])
                 id: selected
             });
 
+			$scope.values = new Array($scope.interestProperties.length);
+
             $scope.addContent = function () {
+            	$scope.content.customProperties = [];
+			    for (i = 0; i < $scope.interestProperties.length; i++) {
+			      $scope.content.customProperties.push({
+			        value: $scope.values[i],
+			        name: $scope.interestProperties[i].name,
+			        type: $scope.interestProperties[i].type,
+			        description: $scope.interestProperties[i].description
+			      });
+			    }
+			    
                 $scope.content.$save();
             };
-
-            //viewing generated form in html
-            $scope.interestProperties.$promise.then(function (response) {
-                $scope.properties = response;
-
-                var html = "";
-
-                for (var i = 0; i < $scope.properties.length; i++) {
-                    var property = $scope.properties[i];
-                    html += "<div class=\"form-group\">" +
-                        "<label for=\"" + property.name + "\" class=\"col-lg-2 control-label\">" + property.description + "</label>" +
-                        "<div class=\"col-lg-10\">" +
-                        "<input type=\"text\" ng-model=\"content." + property.name + "\" class=\"form-control\" id=\"" + property.name + "\" placeholder=\"" + property.description + "\">" +
-                        "</div>" +
-                        "</div>"
-                }
-
-                $scope.customFields = $sce.trustAsHtml(html);
-
-            });
-
-
+            
         })
     ;

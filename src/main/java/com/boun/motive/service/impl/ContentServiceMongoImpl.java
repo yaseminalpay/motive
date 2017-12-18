@@ -3,9 +3,6 @@ package com.boun.motive.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.boun.motive.model.CustomProperty;
-import com.boun.motive.model.Interest;
-import com.boun.motive.service.IInterestService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.boun.motive.model.Content;
@@ -17,14 +14,9 @@ public class ContentServiceMongoImpl implements IContentService {
 
 	@Autowired
 	ContentMongoRepository contentMongoRepository;
-	@Autowired
-	IInterestService interestService;
 
 	@Override
 	public Content createContent(Content content) {
-		Interest interest = interestService.getInterest(content.getInterestId());
-		List<CustomProperty> properties = interest.getProperties();
-		content.setCustomProperties(properties);
 		contentMongoRepository.save(content);
 		return content;
 	}

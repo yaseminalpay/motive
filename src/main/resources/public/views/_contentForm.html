@@ -19,9 +19,16 @@
     </div>
 </div>
 
-<div>
-    <p ng-bind-html="customFields"></p>
-</div>
+<!--custom fields --> 
+<div class="form-group" ng-repeat-start="prop in interestProperties">
+    <label class="col-lg-10 control-label">{{prop.description}}</label>
+    <div class="col-lg-10">
+        <input type="text" class="form-control" ng-model='values[$index]' value=''>
+    </div>
+</div><p ng-repeat-end></p>
+<button ng-click="saveEverything()">Save</button>
+
+
 
 <div class="form-group">
     <div class="col-lg-10">
@@ -29,6 +36,7 @@
     </div>
 </div>
 
+<br>
 <div class="form-group">
     <div class="col-lg-offset-2 col-lg-2">
         <input type="submit" class="btn btn-primary" value="Save Content"/>
