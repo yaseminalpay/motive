@@ -7,7 +7,13 @@
 	    <p class="card-text">{{content.description}}</p>
        	<div class="form-group justify-content-between" ng-repeat="cusField in content.customProperties">
             <label control-label"><h5>{{cusField.description}}:</h5></label>
-            <p class="card-text">{{cusField.value}}</p>
+            <div id ="textdiv" ng-if="cusField.type == 'text'">
+            	<p class="card-text">{{cusField.value}}</p>
+            </div>
+            <div id = "imagediv" ng-if="cusField.type == 'image'">
+            	<img ng-src="{{cusField.value}}" width="200" height="200" class="img-responsive">
+            </div>
+            
       	</div>
 	  </div>
 	</div>
